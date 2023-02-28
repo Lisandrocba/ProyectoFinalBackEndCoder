@@ -17,7 +17,7 @@ router.use("/login", (req, res) => {
 router.use("/register", (req, res) => {
   res.render("./pages/register.ejs");
 });
-router.use("/home", isAuth, async (req, res) => {
+router.use("/", isAuth, async (req, res) => {
   try {
     const name = req.user.userName;
     const products = await productService.getAll();
@@ -35,16 +35,27 @@ router.use("/home", isAuth, async (req, res) => {
         expires: new Date(Date.now() + 300000),
       })
       .render("index.ejs", {
+        name,
         sectionTitle: "Productos",
         products,
         cartId: cartId,
         userId: req.cookies.userIdCookie,
       });
-
-    res.render("./index.ejs", { name });
   } catch (e) {
-    console.log(e);
+    console.log(e)
+    res.render("./pages/error.ejs", {
+      code: 500,
+      message: "Internal Server Error",
+    });
   }
+});
+
+router.use((req, res) => {
+  res.status(404);
+  res.render("./pages/error.ejs", {
+    code: 404,
+    message: "Not Found",
+  });
 });
 
 export default router;
