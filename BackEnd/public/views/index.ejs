@@ -1,0 +1,49 @@
+<%- include('./partials/header.ejs', { title: 'Home - Tiendita', showNavbar: true }); -%>
+
+<main>
+  <section class="products py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1><%= sectionTitle %></h1>
+      </div>
+      <div class="d-flex justify-content-center">
+
+        <% if(products.length > 0) { %>
+      
+          <ul class="list-unstyled d-flex justify-content-center align-items-center gap-4 flex-wrap">
+            
+            <% products.forEach(function(product){ %>
+              
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%- product.title -%></h5>
+                      <h6 class="card-subtitle mb-2 text-muted">$<%- product.price -%></h6>
+                      <p class="card-text"><%- product.description -%></p>
+                      <a href="#" class="card-link">Add to card</a>
+                    </div>
+                  </div>
+                <li class="products-list__item">
+                  <h1></h1>
+                </li>
+      
+            <% }); %>
+      
+            </ul>
+      
+        <% }else{ %>
+
+          <div class="border rounded p-5 d-flex flex-column justify-content-center align-items-center" style="width: 800px;">
+            <p class="m-0 fs-4">Lo siento! No se encontraron productos.</p>
+          </div>
+
+        <% } %>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('./partials/footer.ejs', { showFooter: true }); -%>
+
+
+
