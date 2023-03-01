@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { isAuth } from "../middleware/isAuthenticated.js";
 import { passportCall } from "../utils.js";
 
 const router = Router()

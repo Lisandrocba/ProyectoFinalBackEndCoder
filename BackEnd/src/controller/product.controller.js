@@ -13,6 +13,11 @@ const getProductById = async(req,res)=>{
         res.send({status: "success", payload: product})
     }catch(e){
         console.log(e)
+        res.status(500);
+        res.render("./pages/error.ejs", {
+        code: 500,
+        message: "Internal Server Error",
+        });
     }
 }
 
