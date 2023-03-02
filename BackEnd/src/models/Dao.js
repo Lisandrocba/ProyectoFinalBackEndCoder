@@ -3,6 +3,7 @@ import Products from "./Products.js";
 import Carts from "./Carts.js";
 import User from "./User.js";
 import Message from "./Messages.js";
+import Order from "./Order.js";
 
 export default class Dao {
   constructor(config) {
@@ -19,13 +20,15 @@ export default class Dao {
     const productSchema = mongoose.Schema(Products.schema, timestamp);
     const cartSchema = mongoose.Schema(Carts.schema, timestamp);
     const userSchema = mongoose.Schema(User.schema, timestamp);
-    const messageSchema = mongoose.Schema(Message.Schema, timestamp)
+    const messageSchema = mongoose.Schema(Message.Schema, timestamp);
+    const oderSchema = mongoose.Schema(Order.Schema, timestamp);
 
     this.models = {
       [Products.model]: mongoose.model(Products.model, productSchema),
       [Carts.model]: mongoose.model(Carts.model, cartSchema),
       [User.model]: mongoose.model(User.model, userSchema),
-      [Message.model]: mongoose.model(Message.model, messageSchema)
+      [Message.model]: mongoose.model(Message.model, messageSchema),
+      [Order.model]: mongoose.model(Order.model, oderSchema)
     };
   }
 

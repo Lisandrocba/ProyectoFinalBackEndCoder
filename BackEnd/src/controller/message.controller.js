@@ -18,9 +18,7 @@ const getAllMessage =async()=>{
         code: 500,
         message: "Internal Server Error",
         });
-    }
-    
-    
+    }   
 }
 
 const getMessageById = async (req, res) => {

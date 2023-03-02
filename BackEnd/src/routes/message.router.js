@@ -3,8 +3,8 @@ import { createMessage, getAllMessage, getMessageById } from "../controller/mess
 
 const router = Router()
 
-router.get("/message", getAllMessage)
-router.get("/message/:id", getMessageById)
-router.post("/message", createMessage)
+router.get("/", getAllMessage)
+router.get("/:id", getMessageById)
+router.post("/", createMessage)
 
 export default router

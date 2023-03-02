@@ -35,3 +35,35 @@ export const sendMail = async ()=>{
     console.log(e)
   }
 }   
+
+export const generateDate =(date)=>{
+  const weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return {
+    hore: date.getDate(),
+    day: weekday[date.getDay()],
+    month: month[date.getMonth()],
+    year: date.getFullYear(),
+  };
+}
