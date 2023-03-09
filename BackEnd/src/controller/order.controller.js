@@ -1,5 +1,5 @@
-import { cartService, orderServices } from "../services/services";
-import { generateDate } from "../utils";
+import { cartService, orderServices } from "../services/services.js";
+import { generateDate } from "../utils.js";
 
 const getOrderById = async (req, res) => {
   try {

@@ -8,7 +8,7 @@ import { productService, userService } from "../services/services.js";
 
 const router = Router();
 
-router.use("/", isAuth, async (req, res) => {
+router.get("/", isAuth, async (req, res) => {
   try {
     const name = req.user.userName;
     const products = await productService.getAll();
